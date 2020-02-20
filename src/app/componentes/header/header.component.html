@@ -1,0 +1,59 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['inicio']" routerLinkActive="active" href="#">Principal <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['historial']" routerLinkActive="active" href="#">Historial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['permisos']" routerLinkActive="active" href="#">Permisos</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Dispositivo">
+        <button class="btn btn-success btn-sm my-2 my-sm-0" type="submit">buscar</button>
+      </form>
+    </div>
+  </nav> -->
+
+  <nav class="light-blue darken-4">
+    <div class="nav-wrapper">
+      <div class="cabecera">
+        <a  [routerLink]="['inicio']" class="brand-logo"><img src="" alt="" width="85px" style="vertical-align: middle;"></a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+        <ul class="right hide-on-med-and-down">
+          <li routerLinkActive="active"><a [routerLink]="['inicio']" >Inicio</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['historial']" >Historial</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['permisos']" >Permisos</a></li>
+          <li><a ><i class="material-icons">exit_to_app</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <ul class="sidenav" id="slide-out">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          <img src="">
+        </div>
+        <a href="#user"><img class="circle" src=""></a>
+        <a href="#name"><span class="white-text name">Erick Leyva</span></a>
+        <a href="#email"><span class="white-text email">userley.diaz@gmail.com</span></a>
+      </div>
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['inicio']" >Inicio</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['historial']" >Historial</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['permisos']" >Permisos</a></li>
+    <li><a  ><i class="material-icons">exit_to_app</i>Salir</a></li>
+  </ul>
+
+  
