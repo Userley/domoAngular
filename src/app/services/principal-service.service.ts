@@ -13,4 +13,8 @@ export class PrincipalServiceService {
   Obtenerdispositivos(): Observable<any> {
     return this.httpCli.get('http://userleydiaz.com/api/dispositivos');
   }
+
+  ObtenerusuariosbyID(coduser:number): Observable<any> {
+    return this.httpCli.get('http://userleydiaz.com/api/usuarios/'+ coduser);
+  }
 }

@@ -8,7 +8,6 @@ import { PrincipalServiceService } from '../../services/principal-service.servic
 export class PrincipalComponent implements OnInit {
 
   dispositivosAll: any;
-  showMe:number=1;
 
   constructor(private dispositivos: PrincipalServiceService) {
     this.dispositivos.Obtenerdispositivos().subscribe(
@@ -19,10 +18,10 @@ export class PrincipalComponent implements OnInit {
       error => {
         return "error en data";
       }
-    )
+    );
 
   }
-  
+
   checkedTickets = [];
   onCheck(evt) {
     if (!this.checkedTickets.includes(evt)) {
