@@ -1,0 +1,36 @@
+a{
+    color:#01579b;
+}
+
+a:hover{
+color:#e65100;
+}
+
+.usuario{
+    border-radius: 25px;
+}
+
+.cabecera{
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+.switch{
+    transform: scale(1.4);
+}
+
+
+.hijologin{
+background:ghostwhite;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	height: 60%;
+	width: 50%;
+    margin: -15% 0 0 -25%;
+    padding: 65px;
+    border-radius: 15px;
+}
+
+

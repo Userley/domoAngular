@@ -1,1 +1,32 @@
-<p>historial works!</p>
+<p></p>
+<strong>
+    <h5>
+        <p style="text-align: center;" class="light-blue-text text-darken-4"><strong>Historial de Actividades</strong>
+        </p>
+    </h5>
+</strong>
+<table class="table centered highlight table-small">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Dispositivo</th>
+            <th>Estado</th>
+            <th>Fecha / Hora</th>
+            <th>Ubicación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let historia of historial">
+            <td><img src="../../../assets/{{historia.Img}}" title="{{historia.Usuario}}" width='45px' alt=''
+                    class='usuario' style='vertical-align: middle;'> <label
+                    style='vertical-align: middle;'>{{historia.NomUser}}</label></td>
+            <td style='font-size:14px'>{{historia.Dispositivo}}</td>
+            <td style='font-size:30px'><span class="">●</span></td>
+            <td style='font-size:14px'>{{historia.Fecha}}{{historia.Hora}}</td>
+            <td><a href="https://maps.google.com/?q={{historia.Latitud}},{{historia.longitud}}" target='_blank'><span
+                        class='new badge red' data-badge-caption=''>Ver</span></a></td>
+        </tr>;
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>

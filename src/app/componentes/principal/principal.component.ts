@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Dispositivo } from 'src/app/interface/dispositivo';
+import { ActivatedRoute, Params } from '@angular/router';
 import { PrincipalServiceService } from '../../services/principal-service.service';
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -7,9 +10,20 @@ import { PrincipalServiceService } from '../../services/principal-service.servic
 })
 export class PrincipalComponent implements OnInit {
 
-  dispositivosAll: any;
+  dispositivosAll: Dispositivo;
 
   constructor(private dispositivos: PrincipalServiceService) {
+
+    this.dispositivos.Obtenerdispositivos().subscribe(
+      data => {
+        this.dispositivosAll = data;
+        return this.dispositivosAll;
+      },
+      error => {
+        return "error en data";
+      }
+    );
+
     this.dispositivos.Obtenerdispositivos().subscribe(
       data => {
         this.dispositivosAll = data;
@@ -22,17 +36,19 @@ export class PrincipalComponent implements OnInit {
 
   }
 
-  checkedTickets = [];
-  onCheck(evt) {
-    if (!this.checkedTickets.includes(evt)) {
-      this.checkedTickets.push(evt);
+  actualizar(id:number, estado:number) {
+
+    let est: number;
+
+    if (estado) {
+      est = 1;
     } else {
-      var index = this.checkedTickets.indexOf(evt);
-      if (index > -1) {
-        this.checkedTickets.splice(index, 1);
-      }
+      est = 0;
     }
-    console.log(this.checkedTickets);
+
+    this.dispositivos.ActEstadoDispositivo(id, est).subscribe();
+
+    console.log('ID:' + id + ' Estado:' + est);
   }
 
   ngOnInit() {

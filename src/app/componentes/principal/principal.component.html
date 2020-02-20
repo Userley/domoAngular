@@ -17,40 +17,39 @@
 
 
 <div>
-    <h5 style="text-align:center;color:steelblue"><strong>Iluminación</strong></h5>
+    <h5 style="text-align:center;color:steelblue"><strong>Dispositivos</strong></h5>
 </div>
 <div class="row">
-    <div class="col l4 m12 s12">
+    <div class="col l4 m12 s12" *ngFor="let dispositivo of dispositivosAll">
         <div class="row">
             <div class="col s12 m12">
                 <div class="card hoverable blue-grey darken-4">
                     <div class="card-content">
                         <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
+                            style="font-size:medium"><strong>{{dispositivo.Nombre}}</strong><i
                                 class="material-icons right">more_vert</i></span>
 
                         <div class="switch center-align">
                             <label>
                                 <span id="off0">Off</span>
-                                <input type="checkbox" id="btn0">
-                                <span class="lever"></span>
+                                <input type="checkbox" id="{{dispositivo.IdDispositivo}}"  (change)="actualizar(disp1.id,disp1.checked)" #disp1  [checked]="dispositivo.Estado == 1 ? true : false">
+                                <span class="lever"  data-on="Encendido"></span>
                                 <span id="on0">On</span>
                             </label>
                         </div>
-
                     </div>
                     <div class="card-action">
                         <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
                                 id="icomsj0" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion0">El dispositivo está xxxxxxxx</span></span>
+                                id="notificacion0">{{ dispositivo.Respuesta==1 ? 'Dispositivo Encendido':'Dispositivo Apagado'}}</span></span>
                     </div>
                     <div class="card-reveal center-align">
                         <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
                                 Nombre<i class="material-icons right">close</i></span></strong>
 
                         <form action="" method="POST">
-                            <input type="text" name="txtnombredis1" id="txtnombredis1"
-                                value="">
+                            <input type="text" name="txtnombredis{{dispositivo.IdDispositivo}}" id="txtnombredis{{dispositivo.IdDispositivo}}"
+                                value="" [(ngModel)]="dispositivo.Nombre">
                             <input type="submit" name="dis1" value="Guardar"
                                 style="font-size:medium;background-color: #01579b;"
                                 class="btn btn-small card-title text-white">
@@ -61,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="col l4 m12 s12">
+    <!-- <div class="col l4 m12 s12">
         <div class="row">
             <div class="col s12 m12">
                 <div class="card hoverable blue-grey darken-4">
@@ -90,7 +89,7 @@
                                 Nombre<i class="material-icons right">close</i></span></strong>
 
 
-                        <input type="text" name=" " id=" " value="">
+                        <input type="text" name=" " id="1 " value="">
                         <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
                             class="btn btn-small card-title text-white">
                     </div>
@@ -127,7 +126,7 @@
                                 Nombre<i class="material-icons right">close</i></span></strong>
 
 
-                        <input type="text" name=" " id=" " value="">
+                        <input type="text" name=" " id="2 " value="">
                         <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
                             class="btn btn-small card-title text-white">
                     </div>
@@ -169,7 +168,7 @@
                                 Nombre<i class="material-icons right">close</i></span></strong>
 
 
-                        <input type="text" name=" " id=" " value="">
+                        <input type="text" name=" " id="3 " value="">
                         <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
                             class="btn btn-small card-title text-white">
                     </div>
@@ -207,7 +206,7 @@
                                 Nombre<i class="material-icons right">close</i></span></strong>
 
 
-                        <input type="text" name=" " id=" " value="">
+                        <input type="text" name=" " id="4 " value="">
                         <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
                             class="btn btn-small card-title text-white">
                     </div>
@@ -242,12 +241,12 @@
                     <div class="card-reveal center-align">
                         <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
                                 Nombre<i class="material-icons right">close</i></span></strong>
-                        <input type="text" name=" " id=" " value="">
+                        <input type="text" name=" " id="5 " value="">
                         <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
                             class="btn btn-small card-title text-white">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
