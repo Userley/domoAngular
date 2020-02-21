@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://userleydiaz.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
