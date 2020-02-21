@@ -21,7 +21,10 @@ export class PrincipalComponent implements OnInit {
     this.dispositivos.Obtenerdispositivos().subscribe(
       data => {
         this.dispositivosAll = data;
+
+
         return this.dispositivosAll;
+
       },
       error => {
         return "error en data";
@@ -37,7 +40,7 @@ export class PrincipalComponent implements OnInit {
       est = 0;
     }
     this.dispositivos.ActEstadoDispositivo(id, est).subscribe(
-      data=>{
+      data => {
         this.CargarDispositivos();
       }
     );
@@ -45,6 +48,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

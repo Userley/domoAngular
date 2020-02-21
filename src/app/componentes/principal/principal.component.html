@@ -13,6 +13,9 @@
             </div>
         </div>
     </div>
+
+    Notificaciones con PHP y NODEJS
+
 </div> -->
 
 
@@ -32,7 +35,7 @@
                         <div class="switch center-align">
                             <label>
                                 <span [ngStyle]="{'font-weight': dispositivo.Estado==0? 'bold':'normal','color' : dispositivo.Estado==0?'white':'gray'}">Off</span>
-                                <input type="checkbox" id="{{dispositivo.IdDispositivo}}"  (change)="actualizar(disp1.id,disp1.checked)" #disp1  [checked]="dispositivo.Estado == 1 ? true : false">
+                                <input type="checkbox" id="{{dispositivo.IdDispositivo}}"  (change)="actualizar(disp1.id,disp1.checked);" #disp1  [checked]="dispositivo.Estado == 1 ? true : false">
                                 <span class="lever"  data-on="Encendido"></span>
                                 <span [ngStyle]="{'font-weight': dispositivo.Estado==1? 'bold':'normal','color' : dispositivo.Estado==1?'white':'gray'}">On</span>
                             </label>
