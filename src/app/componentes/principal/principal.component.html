@@ -20,7 +20,7 @@
     <h5 style="text-align:center;color:steelblue"><strong>Dispositivos</strong></h5>
 </div>
 <div class="row">
-    <div class="col l4 m12 s12" *ngFor="let dispositivo of dispositivosAll">
+    <div class="col l4 m6 s12" *ngFor="let dispositivo of dispositivosAll">
         <div class="row">
             <div class="col s12 m12">
                 <div class="card hoverable blue-grey darken-4">
@@ -31,17 +31,17 @@
 
                         <div class="switch center-align">
                             <label>
-                                <span id="off0">Off</span>
+                                <span [ngStyle]="{'font-weight': dispositivo.Estado==0? 'bold':'normal','color' : dispositivo.Estado==0?'white':'gray'}">Off</span>
                                 <input type="checkbox" id="{{dispositivo.IdDispositivo}}"  (change)="actualizar(disp1.id,disp1.checked)" #disp1  [checked]="dispositivo.Estado == 1 ? true : false">
                                 <span class="lever"  data-on="Encendido"></span>
-                                <span id="on0">On</span>
+                                <span [ngStyle]="{'font-weight': dispositivo.Estado==1? 'bold':'normal','color' : dispositivo.Estado==1?'white':'gray'}">On</span>
                             </label>
                         </div>
                     </div>
                     <div class="card-action">
                         <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj0" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion0">{{ dispositivo.Respuesta==1 ? 'Dispositivo Encendido':'Dispositivo Apagado'}}</span></span>
+                                id="icomsj0" class="material-icons " [ngStyle]="{'color' : dispositivo.Estado==1?'yellow':'gray'}">notifications</i><span
+                                id="notificacion0">{{ dispositivo.Estado==1 ? 'Dispositivo Encendido':'Dispositivo Apagado'}}</span></span>
                     </div>
                     <div class="card-reveal center-align">
                         <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar

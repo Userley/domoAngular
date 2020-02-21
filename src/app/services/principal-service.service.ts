@@ -12,15 +12,15 @@ export class PrincipalServiceService {
   }
 
   Obtenerdispositivos(): Observable<any> {
-    return this.httpCli.get('/api/dispositivos');
+    return this.httpCli.get('http://userleydiaz.com/api/dispositivos');
   }
 
   ObtenerusuariosbyID(coduser: number): Observable<any> {
-    return this.httpCli.get('/api/usuarios/' + coduser);
+    return this.httpCli.get('http://userleydiaz.com/api/usuarios/' + coduser);
   }
 
   ObtenerHistorial(): Observable<any> {
-    return this.httpCli.get('/api/historial');
+    return this.httpCli.get('http://userleydiaz.com/api/historial');
   }
 
   ActEstadoDispositivo(identificador:number, estado: number): Observable<any> {
@@ -33,10 +33,10 @@ var data:any=[
 ]
 //console.log(identificador);
     let json = JSON.stringify(data);
-    console.log(json);
-    let params = "json="+json;
+    console.log({"IdDispositivo":identificador,"Estado":estado});
+    //let params = "json="+json;
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpCli.post('/api/dispositivos/actualizar', params, { headers: headers });
+    return this.httpCli.post('http://userleydiaz.com/api/dispositivos/actualizar', {"IdDispositivo":identificador,"Estado":estado}, { headers: headers });
   }
 
 }

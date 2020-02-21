@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Dispositivo } from 'src/app/interface/dispositivo';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PrincipalServiceService } from '../../services/principal-service.service';
@@ -11,44 +11,37 @@ import { PrincipalServiceService } from '../../services/principal-service.servic
 export class PrincipalComponent implements OnInit {
 
   dispositivosAll: Dispositivo;
+  EstadosAll: any;
 
   constructor(private dispositivos: PrincipalServiceService) {
-
-    this.dispositivos.Obtenerdispositivos().subscribe(
-      data => {
-        this.dispositivosAll = data;
-        return this.dispositivosAll;
-      },
-      error => {
-        return "error en data";
-      }
-    );
-
-    this.dispositivos.Obtenerdispositivos().subscribe(
-      data => {
-        this.dispositivosAll = data;
-        return this.dispositivosAll;
-      },
-      error => {
-        return "error en data";
-      }
-    );
-
+    this.CargarDispositivos();
   }
 
-  actualizar(id:number, estado:number) {
+  CargarDispositivos() {
+    this.dispositivos.Obtenerdispositivos().subscribe(
+      data => {
+        this.dispositivosAll = data;
+        return this.dispositivosAll;
+      },
+      error => {
+        return "error en data";
+      }
+    );
+  }
 
+  actualizar(id: number, estado: number) {
     let est: number;
-
     if (estado) {
       est = 1;
     } else {
       est = 0;
     }
-
-    this.dispositivos.ActEstadoDispositivo(id, est).subscribe();
-
-    console.log('ID:' + id + ' Estado:' + est);
+    this.dispositivos.ActEstadoDispositivo(id, est).subscribe(
+      data=>{
+        this.CargarDispositivos();
+      }
+    );
+    //console.log('ID:' + id + ' Estado:' + est);
   }
 
   ngOnInit() {
