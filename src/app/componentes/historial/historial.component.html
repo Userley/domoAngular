@@ -21,10 +21,10 @@
                     class='usuario' style='vertical-align: middle;'> <label
                     style='vertical-align: middle;'>{{historia.NomUser}}</label></td>
             <td style='font-size:14px'>{{historia.Dispositivo}}</td>
-            <td style='font-size:30px'><span class="">●</span></td>
+            <td style='font-size:30px'><span class="" [ngStyle]="{'color': historia.Estado=='Activado'? 'green':'red' }" >●</span></td>
             <td style='font-size:14px'>{{historia.Fecha}}{{historia.Hora}}</td>
-            <td><a href="https://maps.google.com/?q={{historia.Latitud}},{{historia.longitud}}" target='_blank'><span
-                        class='new badge red' data-badge-caption=''>Ver</span></a></td>
+            <td><a href="https://maps.google.com/?q={{historia.longitud}},{{historia.Latitud}}" target='_blank'><span
+                        class='new badge blue' data-badge-caption=''>Ver</span></a></td>
         </tr>;
     </tbody>
     <tfoot>

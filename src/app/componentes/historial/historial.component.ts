@@ -12,6 +12,7 @@ export class HistorialComponent implements OnInit {
     this.Historial.ObtenerHistorial().subscribe(
       data => {
         this.historial = data;
+      //  console.log(JSON.stringify(this.historial));
         return this.historial;
       },
       error => {
