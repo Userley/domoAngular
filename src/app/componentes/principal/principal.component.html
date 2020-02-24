@@ -1,24 +1,3 @@
-<!-- <div class="row">
-    <div class="col-sm-4" *ngFor="let dispositivos of dispositivosAll">
-        <div class="card text-white bg-dark mb-3">
-            <div class="card-header ">{{dispositivos.Nombre}}</div>
-            <div class="card-body">
-                <input type="checkbox" checked data-toggle="toggle" [checked]="dispositivos.Estado == 1 ? true : false" data-on="Encendido" data-off="Apagado" data-onstyle="success" data-offstyle="danger">
-            </div>
-            <div class="card-footer">
-                <p *ngIf="dispositivos.Estado==0; else activo">Dispositivo Desactivado</p>
-                <ng-template #activo>
-                    <p>Dispositivo Activado</p>
-                </ng-template>
-            </div>
-        </div>
-    </div>
-
-    Notificaciones con PHP y NODEJS
-
-</div> -->
-
-
 <div>
     <h5 style="text-align:center;color:steelblue"><strong>Dispositivos</strong></h5>
 </div>
@@ -31,225 +10,44 @@
                         <span class="card-title activator white-text"
                             style="font-size:medium"><strong>{{dispositivo.Nombre}}</strong><i
                                 class="material-icons right">more_vert</i></span>
-
                         <div class="switch center-align">
                             <label>
-                                <span [ngStyle]="{'font-weight': dispositivo.Estado==0? 'bold':'normal','color' : dispositivo.Estado==0?'white':'gray'}">Off</span>
-                                <input type="checkbox" id="{{dispositivo.IdDispositivo}}"  (change)="actualizar(disp1.id,disp1.checked);" #disp1  [checked]="dispositivo.Estado == 1 ? true : false">
-                                <span class="lever"  data-on="Encendido"></span>
-                                <span [ngStyle]="{'font-weight': dispositivo.Estado==1? 'bold':'normal','color' : dispositivo.Estado==1?'white':'gray'}">On</span>
+                                <span
+                                    [ngStyle]="{'font-weight': dispositivo.Estado==0? 'bold':'normal','color' : dispositivo.Estado==0?'white':'gray'}">Off</span>
+                                <input type="checkbox" id="{{dispositivo.IdDispositivo}}"
+                                    (change)="actualizar(disp1.id,disp1.checked);" #disp1
+                                    [checked]="dispositivo.Estado == 1 ? true : false">
+                                <span class="lever" data-on="Encendido"></span>
+                                <span
+                                    [ngStyle]="{'font-weight': dispositivo.Estado==1? 'bold':'normal','color' : dispositivo.Estado==1?'white':'gray'}">On</span>
                             </label>
                         </div>
                     </div>
+
                     <div class="card-action">
                         <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj0" class="material-icons " [ngStyle]="{'color' : dispositivo.Estado==1?'yellow':'gray'}">notifications</i><span
+                                id="icomsj0" class="material-icons "
+                                [ngStyle]="{'color' : dispositivo.Estado==1?'yellow':'gray'}">notifications</i><span
                                 id="notificacion0">{{ dispositivo.Estado==1 ? 'Dispositivo Encendido':'Dispositivo Apagado'}}</span></span>
                     </div>
                     <div class="card-reveal center-align">
                         <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
                                 Nombre<i class="material-icons right">close</i></span></strong>
-
                         <form action="" method="POST">
-                            <input type="text" name="txtnombredis{{dispositivo.IdDispositivo}}" id="txtnombredis{{dispositivo.IdDispositivo}}"
-                                value="" [(ngModel)]="dispositivo.Nombre">
+                            <input type="text" name="txtnombredis{{dispositivo.IdDispositivo}}"
+                                id="txtnombredis{{dispositivo.IdDispositivo}}" value=""
+                                [(ngModel)]="dispositivo.Nombre">
                             <input type="submit" name="dis1" value="Guardar"
                                 style="font-size:medium;background-color: #01579b;"
                                 class="btn btn-small card-title text-white">
                         </form>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- <div class="col l4 m12 s12">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable blue-grey darken-4">
-                    <div class="card-content">
-                        <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
-                                class="material-icons right">more_vert</i></span>
-
-                        <div class="switch center-align">
-                            <label>
-                                <span id="off1">Off</span>
-                                <input type="checkbox" id="btn1">
-                                <span class="lever"></span>
-                                <span id="on1">On</span>
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card-action">
-                        <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj1" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion1">El dispositivo está xxxxxxxx</span></span>
-                    </div>
-                    <div class="card-reveal center-align">
-                        <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
-                                Nombre<i class="material-icons right">close</i></span></strong>
-
-
-                        <input type="text" name=" " id="1 " value="">
-                        <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
-                            class="btn btn-small card-title text-white">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col l4 m12 s12">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable blue-grey darken-4">
-                    <div class="card-content">
-                        <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
-                                class="material-icons right">more_vert</i></span>
-
-                        <div class="switch center-align">
-                            <label>
-                                <span id="off2">Off</span>
-                                <input type="checkbox" id="btn2">
-                                <span class="lever"></span>
-                                <span id="on2">On</span>
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card-action">
-                        <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj2" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion2">El dispositivo está xxxxxxxx</span></span>
-                    </div>
-                    <div class="card-reveal center-align">
-                        <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
-                                Nombre<i class="material-icons right">close</i></span></strong>
-
-
-                        <input type="text" name=" " id="2 " value="">
-                        <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
-                            class="btn btn-small card-title text-white">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
-<div>
-    <h5 style="text-align:center;color:steelblue"><strong>Seguridad</strong></h5>
-</div>
-<div class="row">
-    <div class="col l4 m12 s12">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable blue-grey darken-4">
-                    <div class="card-content">
-                        <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
-                                class="material-icons right">more_vert</i></span>
-
-                        <div class="switch center-align">
-                            <label>
-                                <span id="off3">Off</span>
-                                <input type="checkbox" id="btn3">
-                                <span class="lever"></span>
-                                <span id="on3">On</span>
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card-action">
-                        <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj3" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion3">El dispositivo está xxxxxxxx</span></span>
-                    </div>
-                    <div class="card-reveal center-align">
-                        <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
-                                Nombre<i class="material-icons right">close</i></span></strong>
+<script>
 
 
-                        <input type="text" name=" " id="3 " value="">
-                        <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
-                            class="btn btn-small card-title text-white">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col l4 m12 s12">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable blue-grey darken-4 ">
-                    <div class="card-content">
-                        <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
-                                class="material-icons right">more_vert</i></span>
-
-                        <div class="switch center-align">
-                            <label>
-                                <span id="off4">Off</span>
-                                <input type="checkbox" id="btn4">
-                                <span class="lever"></span>
-                                <span id="on4">On</span>
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card-action">
-                        <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj4" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion4">El dispositivo está xxxxxxxx</span></span>
-                    </div>
-                    <div class="card-reveal center-align">
-                        <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
-                                Nombre<i class="material-icons right">close</i></span></strong>
-
-
-                        <input type="text" name=" " id="4 " value="">
-                        <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
-                            class="btn btn-small card-title text-white">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col l4 m12 s12">
-        <div class="row">
-            <div class="col s12 m12">
-                <div class="card hoverable blue-grey darken-4">
-                    <div class="card-content">
-                        <span class="card-title activator white-text"
-                            style="font-size:medium"><strong></strong><i
-                                class="material-icons right">more_vert</i></span>
-
-                        <div class="switch center-align">
-                            <label>
-                                <span id="off5">Off</span>
-                                <input type="checkbox" id="btn5">
-                                <span class="lever"></span>
-                                <span id="on5">On</span>
-                            </label>
-                        </div>
-
-                    </div>
-                    <div class="card-action">
-                        <span class="valign-wrapper  white-text" style="font-size:small;justify-content:center"><i
-                                id="icomsj5" class="material-icons yellow-text">notifications</i><span
-                                id="notificacion5">El dispositivo está xxxxxxxx</span></span>
-                    </div>
-                    <div class="card-reveal center-align">
-                        <strong> <span class="card-title grey-text text-darken-4" style="font-size:medium">Cambiar
-                                Nombre<i class="material-icons right">close</i></span></strong>
-                        <input type="text" name=" " id="5 " value="">
-                        <input type="button" value="Guardar" style="font-size:medium;background-color: #01579b;"
-                            class="btn btn-small card-title text-white">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-</div>
+</script>

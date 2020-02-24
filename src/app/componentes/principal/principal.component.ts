@@ -19,19 +19,17 @@ export class PrincipalComponent implements OnInit {
     this.CargarDispositivos();
   }
 
-  CargarDispositivos() {
+  public CargarDispositivos() {
     this.dispositivos.Obtenerdispositivos().subscribe(
       data => {
         this.dispositivosAll = data;
-
-
         return this.dispositivosAll;
-
       },
       error => {
         return "error en data";
       }
     );
+    this.dispositivos.Obtenerdispositivos().subscribe().unsubscribe();
   }
 
   actualizar(id: number, estado: number) {
@@ -60,9 +58,9 @@ export class PrincipalComponent implements OnInit {
           }
           );
           console.log(this.lat + this.lon);
-           this.dispositivos.GuardarHistorial(id, eststring, Fecha, hora, this.lat, this.lon).subscribe();
+          this.dispositivos.GuardarHistorial(id, eststring, Fecha, hora, this.lat, this.lon).subscribe();
         } else {
-           this.dispositivos.GuardarHistorial(id, eststring, Fecha, hora, this.lat, this.lon).subscribe();
+          this.dispositivos.GuardarHistorial(id, eststring, Fecha, hora, this.lat, this.lon).subscribe();
         }
         this.CargarDispositivos();
       }
@@ -77,11 +75,12 @@ export class PrincipalComponent implements OnInit {
         this.lon = data.coords.longitude;
       }
       );
-      console.log(this.lat + this.lon);
+     // console.log(this.lat + this.lon);
     } else {
       this.lat = 0;
       this.lon = 0;
-    }
+    };
+
   }
 
 }
