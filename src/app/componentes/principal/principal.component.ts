@@ -15,11 +15,26 @@ export class PrincipalComponent implements OnInit {
   EstadosAll: any;
   lat: number;
   lon: number;
+  EstadoDis: any;
   constructor(private dispositivos: PrincipalServiceService) {
     this.CargarDispositivos();
+    this.Cargarestados();
   }
 
-  public CargarDispositivos() {
+  Cargarestados() {
+    this.dispositivos.ObtenerdispositivosEstados().subscribe(
+      data => {
+        setInterval(function () {
+          this.EstadoDis = data;
+          return this.EstadoDis;
+          console.log(data);
+        }, 2000)
+      }
+    )
+
+  }
+
+  CargarDispositivos() {
     this.dispositivos.Obtenerdispositivos().subscribe(
       data => {
         this.dispositivosAll = data;
@@ -75,7 +90,7 @@ export class PrincipalComponent implements OnInit {
         this.lon = data.coords.longitude;
       }
       );
-     // console.log(this.lat + this.lon);
+      // console.log(this.lat + this.lon);
     } else {
       this.lat = 0;
       this.lon = 0;

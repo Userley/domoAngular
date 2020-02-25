@@ -8,7 +8,7 @@ import * as io from 'socket.io-client';
 export class PrincipalServiceService {
   socket: any;
   readonly url: string = "https://pokeapi.co/api/v2/pokemon/ditto/"
-  constructor(private httpCli: HttpClient) {
+  constructor(public httpCli: HttpClient) {
     // this.socket = io(this.url);
 
   }
@@ -20,11 +20,15 @@ export class PrincipalServiceService {
   //   });
   // }
 
-  emit(parametro: string, data: any) {
-    this.socket.emit(parametro, data);
-  }
+  // emit(parametro: string, data: any) {
+  //   this.socket.emit(parametro, data);
+  // }
   Obtenerdispositivos(): Observable<any> {
     return this.httpCli.get('https://userleydiaz.com/api/dispositivos');
+  }
+
+  ObtenerdispositivosEstados(){
+        return this.httpCli.get('https://userleydiaz.com/api/dispositivos/estado');
   }
 
   ObtenerusuariosbyID(coduser: number): Observable<any> {

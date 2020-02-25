@@ -23,6 +23,19 @@
     $('.sidenav').sidenav();
   });
 
+
+  setInterval(function () {
+
+    if (document.getElementById('val1').value = "1") {
+      document.getElementById('1').checked = true;
+      console.log('Activo');
+    } else if (document.getElementById('val1').value == "0") {
+      document.getElementById('1').checked = false;
+      console.log('Inactivo');
+    }
+
+
+  }, 2000);
 </script>
 
 </html>
